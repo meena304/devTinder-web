@@ -14,6 +14,7 @@ import Feed from './components/Feed'
 import Profile from './components/Profile.jsx'
 import Connections from './components/Connections.jsx'
 import Request from './components/Request.jsx'
+import Premium from './components/Premium.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,6 +34,8 @@ function App() {
       <Route path='/profile' element={<Profile/>} />
       <Route path='/connections' element={<Connections />} />
       <Route path='/requests' element={<Request />} />
+      <Route path='/premium' element={<Premium />} />
+
 
 
 

@@ -3,10 +3,10 @@ import { addRequest, removeRequest } from "../utils/requestSlice";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-
+ 
 const Request = () => {
    
-    const request = useSelector(store => store.request)
+    const request = useSelector(store => store.request) ;
    
     const dispatch = useDispatch();
   
@@ -38,7 +38,7 @@ const Request = () => {
             console.log(requests.data.data)
 
 
-            dispatch(addRequest(requests.data.data))
+            dispatch(addRequest(requests.data.data));
            
 
         } catch (error) {

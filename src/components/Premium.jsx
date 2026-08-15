@@ -1,7 +1,19 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
+import { useState } from "react";
 
 const Premium = () => {
+
+    const [isUserPremium , setIsUserPremium] = useState(false);
+
+
+
+    const verifyPremiumUser = async () => {
+        const res = await axios.get(BASE_URL + "/premium/verify",{withCredentials:true})
+        if(res.data.isPremium){
+            setIsUserPremium(true)
+        }
+    }
 
     const handleByType = async (type) => {
 
@@ -22,7 +34,7 @@ const Premium = () => {
         name: order.data.notes.firstName + order.data.notes.lastName,
         description: order.data.notes.membershipType + 'Membership',
         order_id: order.data.id, // This is the order_id created in the backend
-        callback_url: 'http://localhost:3000/payment-success', // Your success URL
+       
         prefill: {
           name: order.data.notes.firstName,
           email: 'gaurav.kumar@example.com',
@@ -31,6 +43,7 @@ const Premium = () => {
         theme: {
           color: '#F37254'
         },
+        handler : verifyPremiumUser
       };
 
 
@@ -51,8 +64,8 @@ const Premium = () => {
 
     }
 
-    return (
-        <>
+    return 
+        {isPremium ?  "You are already a premium user"  : <>
 
             <div className="flex w-full mt-4">
                 <div className="card rounded-box grid h-200 grow place-items-center">
@@ -136,8 +149,8 @@ const Premium = () => {
                         </div>
                     </div></div> new
             </div>
-        </>
-    )
+        </> }
+    
 }
 
 

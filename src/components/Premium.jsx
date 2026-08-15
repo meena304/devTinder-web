@@ -1,10 +1,12 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Premium = () => {
 
     const [isUserPremium , setIsUserPremium] = useState(false);
+
+    useEffect(()=>{verifyPremiumUser()},[])
 
 
 
@@ -65,7 +67,7 @@ const Premium = () => {
     }
 
     return 
-        {isPremium ?  "You are already a premium user"  : <>
+        {isPremium ?  "You are already a premium user"  : (
 
             <div className="flex w-full mt-4">
                 <div className="card rounded-box grid h-200 grow place-items-center">
@@ -149,7 +151,7 @@ const Premium = () => {
                         </div>
                     </div></div> new
             </div>
-        </> }
+        ) }
     
 }
 

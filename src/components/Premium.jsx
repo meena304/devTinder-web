@@ -66,8 +66,7 @@ const Premium = () => {
 
     }
 
-    return 
-        isUserPremium ?  "You are already a premium user"  : (
+    return isUserPremium ?  ("You are already a premium user")  : (
 
             <div className="flex w-full mt-4">
                 <div className="card rounded-box grid h-200 grow place-items-center">
